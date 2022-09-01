@@ -1,5 +1,5 @@
 #!/bin/bash
-cd tests-selfmade-project-1/
+cd tests-selfmade-project-1-public/
 
 if [ -s result.txt ]; then
   # The file is not-empty.
