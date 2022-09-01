@@ -1,6 +1,7 @@
 #!/bin/bash
 
-sudo npm install -g node-minify
+sudo npm install -g google-closure-compiler
+#sudo npm install -g node-minify
 
 rm -Rf tests-selfmade-project-1-public/*
 cp -r secret-tests/* tests-selfmade-project-1-public/
@@ -13,7 +14,7 @@ minify(){
 			done
 		elif [ -f "${FILE}" ]; then
 			if [[ "$FILE" =~ ".js" ]] && [[ ! "$FILE" =~ ".json" ]] ; then
-  				npx google-closure-compiler --module_resolution="NODE" --js="$FILE" --js_output_file="$FILE"
+  				google-closure-compiler --module_resolution="NODE" --js="$FILE" --js_output_file="$FILE"
 				# node-minify -i "$FILE" -o "$FILE" -c gcc
 				if [[ $? != 0 ]] ; then
 					echo "MINIFICATION FAILED"
