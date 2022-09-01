@@ -13,7 +13,8 @@ minify(){
 			done
 		elif [ -f "${FILE}" ]; then
 			if [[ "$FILE" =~ ".js" ]] && [[ ! "$FILE" =~ ".json" ]] ; then
-  				node-minify -i "$FILE" -o "$FILE" -c gcc
+  				npx google-closure-compiler --module_resolution="NODE" --js="$FILE" --js_output_file="$FILE"
+				# node-minify -i "$FILE" -o "$FILE" -c gcc
 				if [[ $? != 0 ]] ; then
 					echo "MINIFICATION FAILED"
 					exit 1
