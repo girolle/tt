@@ -4,6 +4,11 @@ import fileUrl from 'file-url';
 export default async (htmlPath) => {
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
+  await page.setViewport({
+    width: 360,
+    height: 668,
+    deviceScaleFactor: 1,
+  });
   await page.goto(fileUrl(htmlPath), { waitUntil: 'networkidle0' });
   await page.waitForTimeout(3000);
 

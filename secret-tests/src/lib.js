@@ -234,7 +234,7 @@ const checkLayout = async (page) => {
       useCrossOrigin: false,
       outputDiff: true,
     },
-    scaleToSameSize: true,
+    scaleToSameSize: false,
     ignore: 'antialiasing',
   };
 
